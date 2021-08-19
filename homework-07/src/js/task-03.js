@@ -12,3 +12,29 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const imgMaker = images => {
+  const { url, alt } = images;
+  return `<li class="img-style">
+        <img src="${url}" alt="${alt}"  width="240px">
+      </li>`
+      
+}
+const imgCreator = document.querySelector("#gallery");
+const imgStringMaker = images.map(imgMaker).join('');
+
+imgCreator.insertAdjacentHTML('beforeend', imgStringMaker);
+console.log(imgStringMaker)
+
+console.log(typeof imgStringMaker)
+// const imgArr = images.map(option => {
+//   const imgEl = document.createElement('img');
+//   imgEl.src = option.url;
+//   imgEl.alt = option.alt;
+//   imgEl.width = 240;
+
+//   return imgEl
+// });
+
+// imgCreator.append(...imgArr);
+
